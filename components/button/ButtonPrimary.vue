@@ -2,6 +2,6 @@
     <UButton
         class="text-white"
     >
-        Button
+        <slot/>
     </UButton>
 </template>

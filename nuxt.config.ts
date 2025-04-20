@@ -23,4 +23,5 @@ export default defineNuxtConfig({
       pathPrefix: false,
     }
   ],
+  plugins:['@/plugins/focus-plugin.ts']
 })
