@@ -103,7 +103,7 @@ section {
   </section>
 
   <!---------------------- Features ---------------------->
-  <section id="features" class="scroll-mt-[100px]">
+  <section id="features" class="scroll-mt-[80px]">
     <UContainer class="flex flex-col items-center justify-center relative z-10">
       <div class="text-center sm:w-[70%] lg:w-1/2">
         <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#05df72]">
@@ -137,8 +137,14 @@ section {
   <section id="pricing" class="scroll-mt-[100px]">
     <UContainer class="flex flex-col items-center justify-center relative z-10">
       <div class="text-center sm:w-[70%] lg:w-1/2">
-        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold">Pricing</h1>
-        <p class="text-[11px] sm:text-[13px] lg:text-[15px] mt-2">Flexible pricing for language learners — Access bilingual subtitles with our free plan, and unlock advanced features as you grow. No credit card needed to get started.</p>
+        <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#05df72]">
+          Pricing
+        </h1>
+        <p class="text-[11px] sm:text-[13px] lg:text-[15px] mt-2">
+          Flexible pricing for language learners — Access bilingual subtitles
+          with our free plan, and unlock advanced features as you grow. No
+          credit card needed to get started.
+        </p>
       </div>
       <Price />
     </UContainer>
@@ -147,38 +153,88 @@ section {
 
 <script setup lang="ts">
 const youtubeUrl = ref("");
-const embedUrl = ref("https://www.youtube.com/embed/jNQXAC9IVRw");
+const embedUrl = ref("https://www.youtube.com/embed/dCxSsr5xuL8")
 const subtitles = ref<{ time: number; vi: string; en: string }[]>([
   {
-    time: 1,
-    vi: "Được rồi, vậy thì chúng ta đang ở đây, trước mặt những chú voi,",
-    en: "All right, so here we are, in front of the elephants",
+    time: 0,
+    vi: "tiếp theo Một khuôn khổ bao gồm pin để",
+    en: "next A batteries included framework for",
   },
   {
-    time: 5,
-    vi: "điều thú vị về những chú voi này là chúng có vòi thực sự...",
-    en: "the cool thing about these guys is that they have really...",
+    time: 2,
+    vi: "xây dựng bất kỳ loại ứng dụng web nào mà bạn",
+    en: "building any type of web application you",
+  },
+  {
+    time: 4,
+    vi: "có thể tưởng tượng với vue.js mục đích của",
+    en: "can imagine with vue.js the purpose of",
   },
   {
     time: 7,
-    vi: "thực sự rất dài",
-    en: "really really long trunks",
+    vi: "VJs là xây dựng giao diện người dùng front-end",
+    en: "VJs is to build front-end user",
+  },
+  {
+    time: 8,
+    vi: "bằng JavaScript nhưng một",
+    en: "interfaces with JavaScript but a true",
+  },
+  {
+    time: 10,
+    vi: "ứng dụng web đầy đủ thực sự cũng cần",
+    en: "full stack web application also needs to",
   },
   {
     time: 12,
-    vi: "và điều đó thật tuyệt",
-    en: "and that's cool",
+    vi: "xử lý dữ liệu định tuyến tìm nạp bộ nhớ đệm",
+    en: "deal with routing data fetching caching",
   },
   {
     time: 14,
-    vi: "(baaaaaaaaaaahhh!!)",
-    en: "(baaaaaaaaaaahhh!!)",
+    vi: "triển khai và nhiều hơn nữa đó là nơi nux",
+    en: "deployment and more that's where nux",
   },
   {
     time: 16,
-    vi: "và đó là tất cả những gì có thể nói",
-    en: "and that's pretty much all there is to say",
+    vi: "phát huy tác dụng nó hoạt động bằng cách buộc chặt",
+    en: "comes in it works by strapping its Nitro",
   },
+  {
+    time: 19,
+    vi: "công cụ máy chủ Nitro của nó để xem cho phép nhiều",
+    en: "server engine to view enabling multiple",
+  },
+  {
+    time: 21,
+    vi: "chế độ hiển thị từ một",
+    en: "rendering modes from a single",
+  },
+  {
+    time: 22,
+    vi: "ứng dụng theo mặc định nó thực hiện",
+    en: "application by default it does Universal",
+  },
+  {
+    time: 24,
+    vi: "Hiển thị phổ quát trong đó chế độ xem trang ban đầu được",
+    en: "rendering where the initial page view is",
+  },
+  {
+    time: 26,
+    vi: "hiển thị trên máy chủ sau đó JavaScript",
+    en: "rendered on the server then JavaScript",
+  },
+  {
+    time: 28,
+    vi: "tiếp quản để xử lý tất cả các điều",
+    en: "takes over to handle all subsequent",
+  },
+  {
+    time: 30,
+    vi: "hướng tiếp theo phía máy khách tuy nhiên nếu điều đó",
+    en: "navigation client-side however if that's",
+  }
 ]);
 
 const extractYoutubeId = (url: string) => {
@@ -194,7 +250,7 @@ const handleSubmit = async () => {
   if (youtubeId) {
     try {
       const response = await fetch(
-        `http://localhost:3001/api/get?id=${youtubeId}`
+        `https://submaster-be.onrender.com/api/get?id=${youtubeId}`
       );
       if (response.ok) {
         const data = await response.json();
