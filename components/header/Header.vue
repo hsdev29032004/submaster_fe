@@ -6,10 +6,10 @@
                     <img src="/images/logo.png" alt="logo" width="120px" />
                 </NuxtLink>
                 <div class="flex items-center">
-                    <UNavigationMenu color="neutral" variant="link" :items="items" class="w-full" />
+                    <!-- <UNavigationMenu color="neutral" variant="link" :items="items" class="w-full" /> -->
 
-                    <USwitch v-model="isDark" class="ml-4" checked-icon="i-lucide-moon" unchecked-icon="i-lucide-sun" />
-                    <UDropdownMenu :items="itemsdropdown" :ui="{
+                    <USwitch v-model="isDark" class="ml-4" unchecked-icon="i-lucide-moon" checked-icon="i-lucide-sun" />
+                    <!-- <UDropdownMenu :items="itemsdropdown" :ui="{
                         content: 'w-48',
                         item: 'text-[#62748e]',
                         label: 'text-[#62748e]'
@@ -17,7 +17,7 @@
                         <UButton color="neutral" class="bg-transparent hover:bg-transparent">
                             <UAvatar src="https://github.com/benjamincanac.png" />
                         </UButton>
-                    </UDropdownMenu>
+                    </UDropdownMenu> -->
                 </div>
             </UContainer>
         </div>
@@ -25,90 +25,89 @@
 </template>
 
 <script setup lang="ts">
-import type { DropdownMenuItem, NavigationMenuItem } from '@nuxt/ui';
 
 const colorMode = useColorMode()
 const isDark = ref(false)
 
 onMounted(() => {
-    isDark.value = colorMode.value === 'dark'
+    isDark.value = colorMode.value === 'light'
 })
 
-watch(isDark, (val) => {
-    colorMode.preference = val ? 'dark' : 'light'
+watch(isDark, (val:any) => {
+    colorMode.preference = val ? 'light' : 'dark'
 })
 
 
-const items = ref<NavigationMenuItem[][]>([
-    [
-        {
-            label: 'Home',
-            icon: 'material-symbols:house-outline',
-            to: '#home',
-        },
-        {
-            label: 'Features',
-            icon: 'material-symbols:extension-outline-rounded',
-            to: '#features'
-        },
-        {
-            label: 'Pricing',
-            icon: 'material-symbols:attach-money-rounded',
-            to: '#pricing'
-        }
-    ]
-])
+// const items = ref([
+//     [
+//         {
+//             label: 'Home',
+//             icon: 'material-symbols:house-outline',
+//             to: '#home',
+//         },
+//         {
+//             label: 'Features',
+//             icon: 'material-symbols:extension-outline-rounded',
+//             to: '#features'
+//         },
+//         {
+//             label: 'Pricing',
+//             icon: 'material-symbols:attach-money-rounded',
+//             to: '#pricing'
+//         }
+//     ]
+// ])
 
-const itemsdropdown = ref<DropdownMenuItem[][]>([
-    [
-        {
-            label: 'Benjamin',
-            avatar: {
-                src: 'https://github.com/benjamincanac.png'
-            },
-            type: 'label'
-        }
-    ],
-    [
-        {
-            label: 'Home',
-            icon: 'material-symbols:house-outline',
-            to: '#home',
-        },
-        {
-            label: 'Features',
-            icon: 'material-symbols:extension-outline-rounded',
-            to: '#features'
-        },
-        {
-            label: 'Pricing',
-            icon: 'material-symbols:attach-money-rounded',
-            to: '#pricing'
-        }
-    ],
-    [
-        {
-            label: 'Theme',
-            icon: 'i-lucide-users'
-        },
-        {
-            label: 'Language',
-            icon: 'ic:baseline-language',
-            children: [
-                [
-                    {
-                        label: 'English',
-                    },
-                    {
-                        label: 'Vietnam',
-                    }
-                ]
-            ]
-        },
-        {
-            label: 'Logout',
-            icon: 'ic:baseline-logout',
-        }
-    ]
-])
+// const itemsdropdown = ref([
+//     [
+//         {
+//             label: 'Benjamin',
+//             avatar: {
+//                 src: 'https://github.com/benjamincanac.png'
+//             },
+//             type: 'label'
+//         }
+//     ],
+//     [
+//         {
+//             label: 'Home',
+//             icon: 'material-symbols:house-outline',
+//             to: '#home',
+//         },
+//         {
+//             label: 'Features',
+//             icon: 'material-symbols:extension-outline-rounded',
+//             to: '#features'
+//         },
+//         {
+//             label: 'Pricing',
+//             icon: 'material-symbols:attach-money-rounded',
+//             to: '#pricing'
+//         }
+//     ],
+//     [
+//         {
+//             label: 'Theme',
+//             icon: 'i-lucide-users'
+//         },
+//         {
+//             label: 'Language',
+//             icon: 'ic:baseline-language',
+//             children: [
+//                 [
+//                     {
+//                         label: 'English',
+//                     },
+//                     {
+//                         label: 'Vietnam',
+//                     }
+//                 ]
+//             ]
+//         },
+//         {
+//             label: 'Logout',
+//             icon: 'ic:baseline-logout',
+//         }
+//     ]
+// ])
 </script>
