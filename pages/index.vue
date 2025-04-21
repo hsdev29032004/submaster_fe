@@ -4,7 +4,7 @@ section {
 }
 
 .light section:nth-of-type(even) {
-  background-color: #ebebeb;
+  background-color: #f8f8f8;
 }
 
 .dark section:nth-of-type(odd) {
@@ -103,7 +103,7 @@ section {
   </section>
 
   <!---------------------- Features ---------------------->
-  <section id="features">
+  <section id="features" class="scroll-mt-[100px]">
     <UContainer class="flex flex-col items-center justify-center relative z-10">
       <div class="text-center sm:w-[70%] lg:w-1/2">
         <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#05df72]">
@@ -116,16 +116,31 @@ section {
         </p>
       </div>
       <Feature />
+      <div
+        class="bg-[#e3f3e9] dark:bg-[#0b1121] mt-4 rounded-md flex items-center"
+        style="padding: 15px"
+      >
+        <div>
+          <h2 class="text-xl font-bold">Get Started Today</h2>
+          <p class="text-[11px]">
+            Download the app and start translating subtitles in seconds
+          </p>
+        </div>
+        <div class="ml-3">
+          <ButtonSecondary>Download App</ButtonSecondary>
+        </div>
+      </div>
     </UContainer>
   </section>
 
   <!---------------------- Pricing ---------------------->
-  <section id="pricing">
+  <section id="pricing" class="scroll-mt-[100px]">
     <UContainer class="flex flex-col items-center justify-center relative z-10">
       <div class="text-center sm:w-[70%] lg:w-1/2">
         <h1 class="text-2xl sm:text-3xl lg:text-4xl font-bold">Pricing</h1>
-        <p class="text-[11px] sm:text-[13px] lg:text-[15px] mt-2"></p>
+        <p class="text-[11px] sm:text-[13px] lg:text-[15px] mt-2">Flexible pricing for language learners — Access bilingual subtitles with our free plan, and unlock advanced features as you grow. No credit card needed to get started.</p>
       </div>
+      <Price />
     </UContainer>
   </section>
 </template>

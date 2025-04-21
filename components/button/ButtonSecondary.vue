@@ -1,7 +1,7 @@
 <template>
-    <UButton 
+    <UButton
         variant="outline"
     >
-        Button
+        <slot />
     </UButton>
 </template>
