@@ -1,6 +1,10 @@
-@import "tailwindcss";
-@import "@nuxt/ui";
+@import 'tailwindcss';
+@import '@nuxt/ui';
 
 body {
-    font-family: 'Quicksand', ui-serif, Georgia, sans-serif;
+  font-family: 'Quicksand', ui-serif, Georgia, sans-serif;
+}
+
+.bg-card {
+  @apply bg-white text-black;
 }

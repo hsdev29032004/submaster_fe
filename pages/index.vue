@@ -18,7 +18,6 @@ section {
   background-repeat: no-repeat;
   position: relative;
   overflow: hidden;
-  padding-top: 100px;
 }
 
 .dark #home {

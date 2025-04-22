@@ -43,17 +43,12 @@ const items = ref([
         {
             label: 'Home',
             icon: 'material-symbols:house-outline',
-            to: '#home',
+            to: '/',
         },
         {
-            label: 'Features',
+            label: 'Task',
             icon: 'material-symbols:extension-outline-rounded',
-            to: '#features'
-        },
-        {
-            label: 'Pricing',
-            icon: 'material-symbols:attach-money-rounded',
-            to: '#pricing'
+            to: '/todo'
         }
     ]
 ])
@@ -75,14 +70,9 @@ const itemsdropdown = ref([
             to: '#home',
         },
         {
-            label: 'Features',
+            label: 'Task',
             icon: 'material-symbols:extension-outline-rounded',
-            to: '#features'
-        },
-        {
-            label: 'Pricing',
-            icon: 'material-symbols:attach-money-rounded',
-            to: '#pricing'
+            to: '/todo'
         }
     ],
     [
