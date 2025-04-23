@@ -7,24 +7,27 @@ export enum TodoStatus {
 }
 
 export const useTaskStore = defineStore("task", {
-  state: () => {
+  state: (): Record<string, string[]> => {
     return {
-      todo: ["Build a landing page", "Build a todo app", "Learn storybook"],
-      inProgress: ["Learn pinia", "Learn nuxtjs"],
-      done: ["Learn vuejs", "Learn scss/sass"],
+      todo: [],
+      inProgress: [],
+      done: [],
     };
   },
   actions: {
     insert(value: string, type: TodoStatus): void {
       this[type].push(value);
+      localStorage.setItem("tasks", JSON.stringify(this.$state))
     },
     remove(index: number, type: TodoStatus): void {
       this[type].splice(index, 1);
+      localStorage.setItem("tasks", JSON.stringify(this.$state))
     },
     edit(index: number, value: string, type: TodoStatus): void {
       if (!value.trim()) return;
       const list = this[type];
       list[index] = value;
+      localStorage.setItem("tasks", JSON.stringify(this.$state))
     },
   },
   getters: {

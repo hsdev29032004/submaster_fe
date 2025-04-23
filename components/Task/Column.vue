@@ -12,7 +12,7 @@
         <li
           class="text-center flex justify-between pl-2 pr-2"
           v-if="!(index === idxPick && groupPick === type)"
-          v-show="(new RegExp(filter, 'i').test(item))"
+          v-show="new RegExp(filter, 'i').test(item)"
           @dblclick="() => handleDblClick(index, type, item)"
         >
           <p
@@ -62,7 +62,7 @@ const props = defineProps<{
   type: TodoStatus;
   nameColumn: string;
   store: any;
-  filter: string
+  filter: string;
 }>();
 
 const idxPick = ref<number>(-1);
@@ -136,6 +136,6 @@ const handleDelete = (index: number, type: TodoStatus) => {
 };
 
 const handleDrop = () => {
-  console.log("drop");
-}
+  localStorage.setItem("tasks", JSON.stringify(props.store));
+};
 </script>

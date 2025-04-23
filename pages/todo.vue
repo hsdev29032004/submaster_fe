@@ -36,5 +36,10 @@ import { useTaskStore, TodoStatus } from "@/stores/todo";
 
 const task = useTaskStore();
 
-const valueFilter = ref<string>("");
+const valueFilter = ref<string>("")
+
+onMounted(() => {
+  const tasks = (JSON.parse(localStorage.getItem("tasks") || '{}'))
+  task.$state = tasks
+})
 </script>
