@@ -21,10 +21,10 @@ export const useTaskStore = defineStore("task", {
     remove(index: number, type: TodoStatus): void {
       this[type].splice(index, 1);
     },
-    edit(idx: number, value: string, type: TodoStatus): void {
+    edit(index: number, value: string, type: TodoStatus): void {
       if (!value.trim()) return;
       const list = this[type];
-      list[idx] = value;
+      list[index] = value;
     },
   },
 });

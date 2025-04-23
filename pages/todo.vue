@@ -23,7 +23,7 @@
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
 import { useTaskStore, TodoStatus } from "@/stores/todo";
 
 const task = useTaskStore();

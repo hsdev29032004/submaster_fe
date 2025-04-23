@@ -1,43 +1,3 @@
-<style>
-section {
-  padding: 15px 0px;
-}
-
-.light section:nth-of-type(even) {
-  background-color: #f8f8f8;
-}
-
-.dark section:nth-of-type(odd) {
-  background-color: #0b1121;
-}
-
-#home {
-  background-image: url("/images/light_banner.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  position: relative;
-  overflow: hidden;
-}
-
-.dark #home {
-  background-image: url("/images/dark_banner.png");
-}
-
-#home::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  backdrop-filter: blur(4px);
-  background-color: rgba(255, 255, 255, 0.7);
-  z-index: 1;
-}
-
-.dark #home::before {
-  background-color: rgba(0, 0, 0, 0.7);
-}
-</style>
-
 <template>
   <!---------------------- Home ---------------------->
   <section id="home">
@@ -264,3 +224,43 @@ const handleSubmit = async () => {
   }
 };
 </script>
+
+<style>
+section {
+  padding: 15px 0px;
+}
+
+.light section:nth-of-type(even) {
+  background-color: #f8f8f8;
+}
+
+.dark section:nth-of-type(odd) {
+  background-color: #0b1121;
+}
+
+#home {
+  background-image: url("/images/light_banner.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  overflow: hidden;
+}
+
+.dark #home {
+  background-image: url("/images/dark_banner.png");
+}
+
+#home::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(4px);
+  background-color: rgba(255, 255, 255, 0.7);
+  z-index: 1;
+}
+
+.dark #home::before {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+</style>
