@@ -27,4 +27,15 @@ export const useTaskStore = defineStore("task", {
       list[index] = value;
     },
   },
+  getters: {
+    filterTask: (state) => {
+      return (filter: RegExp) => {
+        return {
+          todo: state.todo?.filter(item => filter.test(item)),
+          inProgress: state.inProgress?.filter(item => filter.test(item)),
+          done: state.done?.filter(item => filter.test(item))
+        }
+      };
+    },
+  },
 });

@@ -1,5 +1,10 @@
 <template>
-  <AddTaskForm />
+  <div class="flex justify-between">
+    <div class="text-center mt-4 mb-4">
+      <UInput v-model="valueFilter" placeholder="filter" />
+    </div>
+    <AddTaskForm />
+  </div>
   <div
     class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-2"
   >
@@ -7,18 +12,21 @@
       :type="TodoStatus.TODO"
       nameColumn="Todo"
       :store="task"
+      :filter="valueFilter"
     />
 
     <Column
       :type="TodoStatus.INPROGRESS"
       nameColumn="In progress"
       :store="task"
+      :filter="valueFilter"
     />
 
     <Column
       :type="TodoStatus.DONE"
       nameColumn="Done"
       :store="task"
+      :filter="valueFilter"
     />
   </div>
 </template>
@@ -27,4 +35,6 @@
 import { useTaskStore, TodoStatus } from "@/stores/todo";
 
 const task = useTaskStore();
+
+const valueFilter = ref<string>("");
 </script>

@@ -9,6 +9,7 @@
 import { TodoStatus, useTaskStore } from "~/stores/todo";
 
 const task = useTaskStore();
+
 const valueInsert = ref<string | null>("");
 
 const handleClick = () => {
