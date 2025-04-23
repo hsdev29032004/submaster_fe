@@ -1,7 +1,7 @@
 <template>
   <div class="text-center mt-4 mb-4">
     <UInput type="text" v-model="valueInsert" />
-    <ButtonPrimary @click="handleClick">Add</ButtonPrimary>
+    <Button type="success" @click="handleClick">Add</Button>
   </div>
 </template>
 

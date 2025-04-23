@@ -1,4 +1,4 @@
-<!-- <template>
+<template>
   <li
     class="text-center flex justify-between pl-2 pr-2"
     v-if="!(index === idxPick && groupPick === type)"
@@ -106,4 +106,4 @@ const handleMove = (
     }
   }
 };
-</script> -->
+</script>

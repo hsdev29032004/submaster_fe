@@ -15,9 +15,9 @@
           <span>{{ item }}</span>
         </li>
       </ul>
-      <ButtonPrimary class="mt-4">
+      <Button type="success" class="mt-4">
         <NuxtLink to="#home">Try now</NuxtLink>
-      </ButtonPrimary>
+      </Button>
     </div>
 
     <div class="bg-[#f8f8f8] dark:bg-[#0f172b] p-4 rounded-lg">
@@ -35,7 +35,7 @@
           <span>{{ item }}</span>
         </li>
       </ul>
-      <ButtonPrimary class="mt-4">Upgrade now</ButtonPrimary>
+      <Button type="success" class="mt-4">Upgrade now</Button>
     </div>
   </div>
 </template>
