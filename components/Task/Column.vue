@@ -9,18 +9,16 @@
       @end="handleDrop"
     >
       <template #item="{ element: item, index }">
-        <TaskCard   :type="type" :store="store" :item="item" :index="index" />
+        <TaskCard :filter="filter" :type="type" :store="store" :item="item" :index="index" />
       </template>
     </draggable>
   </div>
 </template>
 
 <script setup lang="ts">
-//@ts-ignore
 import draggable from "vuedraggable";
 import { TodoStatus } from "~/stores/todo";
 
-//@ts-ignore
 const props = defineProps<{
   type: TodoStatus;
   nameColumn: string;

@@ -5,9 +5,7 @@
 </template>
 
 <script setup lang="ts">
-//@ts-ignore
 const props = withDefaults(
-    //@ts-ignore
     defineProps<{
         type?: 'primary' | 'success' | 'default'
     }>(),
@@ -24,31 +22,21 @@ const btnClass = computed(() => {
 </script>
 
 <style scoped lang="scss">
+@use '@/assets/scss/mixins' as *;
+
 .btn {
     cursor: pointer;
 
     &-primary {
-        background-color: blue;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
+        @include btn-style(blue, white);
     }
 
     &-success {
-        background-color: green;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
+        @include btn-style(green, white);
     }
 
     &-default {
-        background-color: lightgray;
-        color: black;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
+        @include btn-style(lightgray, black);
     }
 }
 </style>

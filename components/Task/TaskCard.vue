@@ -2,6 +2,7 @@
   <li
     class="text-center flex justify-between pl-2 pr-2"
     v-if="!(index === idxPick && groupPick === type)"
+    v-show="new RegExp(filter, 'i').test(item)"
     @dblclick="() => handleDblClick(index, type, item)"
   >
     <p
@@ -37,12 +38,12 @@ const idxPick = ref<number>(-1);
 const groupPick = ref<TodoStatus | "">("");
 const valueEdit = ref<string>("");
 
-//@ts-ignore
 const props = defineProps<{
   type: TodoStatus;
   store: any;
   item: any,
-  index: any
+  index: number
+  filter: string
 }>();
 
 const handleDblClick = (index: number, group: TodoStatus, item: string) => {
