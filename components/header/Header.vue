@@ -6,12 +6,12 @@
           <img src="/images/logo.png" alt="logo" width="120px" />
         </NuxtLink>
         <div class="flex items-center">
-          <UNavigationMenu
+          <!-- <UNavigationMenu
             color="neutral"
             variant="link"
             :items="items"
             class="w-full"
-          />
+          /> -->
 
           <USwitch
             v-model="isDark"
@@ -19,7 +19,7 @@
             unchecked-icon="i-lucide-moon"
             checked-icon="i-lucide-sun"
           />
-          <UDropdownMenu
+          <!-- <UDropdownMenu
             :items="itemsdropdown"
             :ui="{
               content: 'w-48',
@@ -33,7 +33,7 @@
             >
               <UAvatar src="https://github.com/benjamincanac.png" />
             </UButton>
-          </UDropdownMenu>
+          </UDropdownMenu> -->
         </div>
       </UContainer>
     </div>
