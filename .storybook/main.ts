@@ -1,29 +1,18 @@
-import type { StorybookConfig } from '@storybook-vue/nuxt'
-import { resolve } from 'path'
+import type { StorybookConfig } from '@storybook-vue/nuxt';
 
 const config: StorybookConfig = {
-  stories: [
-    '../components/**/*.stories.@(js|jsx|ts|tsx)',
+  "stories": [
+    "../components/**/*.mdx",
+    "../components/**/*.stories.@(js|jsx|ts|tsx|mdx)"
   ],
-  addons: [
-    '@storybook/addon-essentials',
-    '@chromatic-com/storybook',
-    '@storybook/experimental-addon-test',
+  "addons": [
+    "@storybook/addon-essentials",
+    "@chromatic-com/storybook",
+    "@storybook/experimental-addon-test"
   ],
-  framework: {
-    name: '@storybook-vue/nuxt',
-    options: {},
-  },
-  viteFinal: async (config) => {
-    // Đảm bảo alias tồn tại
-    config.resolve ??= {}
-    config.resolve.alias ??= {}
-
-    // Fake 'reka-ui' bằng file rỗng
-    config.resolve.alias['reka-ui'] = resolve('./.storybook/.mocks/reka-ui.ts')
-
-    return config
+  "framework": {
+    "name": "@storybook-vue/nuxt",
+    "options": {}
   }
-}
-
-export default config
+};
+export default config;
