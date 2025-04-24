@@ -6,12 +6,12 @@
           <img src="/images/logo.png" alt="logo" width="120px" />
         </NuxtLink>
         <div class="flex items-center">
-          <!-- <UNavigationMenu
+          <UNavigationMenu
             color="neutral"
             variant="link"
             :items="items"
             class="w-full"
-          /> -->
+          />
 
           <USwitch
             v-model="isDark"

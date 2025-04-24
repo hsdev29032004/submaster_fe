@@ -60,6 +60,6 @@ export const Primary: Story = {
 export const Success: Story = {
     render: Template,
     args: {
-        type: 'success',
+        status: 'success',
     },
 }
