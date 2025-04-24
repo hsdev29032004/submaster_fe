@@ -12,7 +12,7 @@
       {{ "<" }}
     </p>
     <p v-else></p>
-    <p>{{ item }}</p>
+    <p>{{ item }} - <span class="text-red-500 cursor-pointer" @click="() => handleDelete(index, type)">Xóa</span></p>
     <p
       v-if="type !== TodoStatus.DONE"
       @click="() => handleMove(index, type, 'next', item)"
@@ -21,8 +21,9 @@
     </p>
     <p v-else></p>
   </li>
-  <UInput
+  <Input
     v-else
+    size="sm"
     v-model="valueEdit"
     @blur="handleBlur"
     @keyup.enter="handleBlur"
@@ -64,6 +65,10 @@ const handleBlur = () => {
     valueEdit.value = "";
   }
 };
+
+const handleDelete = (index: number, type: string) => {
+  props.store?.remove(index, type)
+}
 
 const handleMove = (
   index: number,

@@ -20,10 +20,13 @@
                     @submit.prevent="handleSubmit"
                     class="flex w-full max-w-md"
                 >
-                    <UInput
+                    <Input
+                        size="sm"
                         type="text"
                         placeholder="Enter video URL..."
                         class="flex-1 rounded-l-md text-black focus:outline-none"
+                        outline="#00801b"
+                        focus="#00801b"
                         style="
                             border-top-right-radius: 0;
                             border-bottom-right-radius: 0;
@@ -32,6 +35,7 @@
                     />
                     <Button
                         type="success"
+                        size="sm"
                         style="
                             border-top-left-radius: 0;
                             border-bottom-left-radius: 0;

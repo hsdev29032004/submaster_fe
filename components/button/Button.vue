@@ -1,6 +1,6 @@
 <template>
-    <button :class="btnClass" :disabled="props.loading">
-        <span v-if="props.loading">Loading...</span>
+    <button :class="btnClass" :disabled="loading">
+        <span v-if="loading">Loading...</span>
         <slot v-else />
     </button>
 </template>

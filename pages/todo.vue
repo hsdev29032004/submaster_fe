@@ -1,7 +1,7 @@
 <template>
     <div class="flex justify-between">
         <div class="text-center mt-4 mb-4">
-            <UInput v-model="valueFilter" placeholder="filter" />
+            <Input size="sm" v-model="valueFilter" placeholder="filter" />
         </div>
         <AddTaskForm />
     </div>

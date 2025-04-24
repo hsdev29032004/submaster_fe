@@ -1,7 +1,7 @@
 <template>
-  <div class="text-center mt-4 mb-4">
-    <UInput type="text" v-model="valueInsert" />
-    <Button type="success" @click="handleClick">Add</Button>
+  <div class="flex text-center mt-4 mb-4">
+    <Input type="text" v-model="valueInsert" size="sm" />
+    <Button type="success" size="sm" @click="handleClick">Add</Button>
   </div>
 </template>
 
@@ -10,7 +10,7 @@ import { TodoStatus, useTaskStore } from "~/stores/todo";
 
 const task = useTaskStore();
 
-const valueInsert = ref<string | null>("");
+const valueInsert = ref<string>("");
 
 const handleClick = () => {
   if (!valueInsert.value?.trim()) return;
