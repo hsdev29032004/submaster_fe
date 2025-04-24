@@ -8,7 +8,14 @@ const meta: Meta<typeof Button> = {
     argTypes: {
         type: {
             control: { type: 'select' },
-            options: ['primary', 'success', undefined],
+            options: ['primary', 'success', 'disabled', 'danger', undefined],
+        },
+        size: {
+            control: {type: 'select'},
+            options: ['sm', 'md', 'lg']
+        },
+        fullWidth: {
+            control: {type: 'boolean'}
         },
         default: {
             control: 'text',
@@ -39,6 +46,8 @@ export const Primary: Story = {
     render: Template,
     args: {
         type: 'primary',
+        size: 'md',
+        fullWidth: false,
         default: 'Primary Button',
     },
 }
