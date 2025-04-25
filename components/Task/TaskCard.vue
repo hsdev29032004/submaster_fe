@@ -1,40 +1,40 @@
 <template>
-    <Modal
-        title="Eaera modal"
-        v-model:visible="visible"
-        :onOk="handleOk"
-        :onCancel="handleCancel"
-    >
-        <form>
-            <div>
-                <label for="title">Title</label>
-                <Input
-                    type="text"
-                    size="sm"
-                    name="title"
-                    id="title"
-                    fullWidth
-                    v-model="valueEdit.title"
-                />
-            </div>
-            <div class="mt-3">
-                <label for="title">Description</label>
-                <Input
-                    type="text"
-                    size="sm"
-                    name="desc"
-                    id="desc"
-                    fullWidth
-                    v-model="valueEdit.description"
-                />
-            </div>
-        </form>
-    </Modal>
     <li
         class="text-center flex justify-between pl-2 pr-2"
         v-show="new RegExp(filter, 'i').test(item.title)"
         @dblclick="() => handleDblClick(index, type, item)"
     >
+        <Modal
+            title="Eaera modal"
+            v-model:visible="visible"
+            :onOk="handleOk"
+            :onCancel="handleCancel"
+        >
+            <form>
+                <div>
+                    <label for="title">Title</label>
+                    <Input
+                        type="text"
+                        size="sm"
+                        name="title"
+                        id="title"
+                        fullWidth
+                        v-model="valueEdit.title"
+                    />
+                </div>
+                <div class="mt-3">
+                    <label for="title">Description</label>
+                    <Input
+                        type="text"
+                        size="sm"
+                        name="desc"
+                        id="desc"
+                        fullWidth
+                        v-model="valueEdit.description"
+                    />
+                </div>
+            </form>
+        </Modal>
         <p
             v-if="type !== TodoStatus.TODO"
             @click="() => handleMove(index, type, 'prev', item)"
