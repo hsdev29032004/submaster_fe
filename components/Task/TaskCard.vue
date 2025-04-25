@@ -32,7 +32,7 @@
     </Modal>
     <li
         class="text-center flex justify-between pl-2 pr-2"
-        v-show="new RegExp(filter, 'i').test(item)"
+        v-show="new RegExp(filter, 'i').test(item.title)"
         @dblclick="() => handleDblClick(index, type, item)"
     >
         <p
