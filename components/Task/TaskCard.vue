@@ -24,6 +24,7 @@
   <Input
     v-else
     size="sm"
+    fullWidth
     v-model="valueEdit"
     @blur="handleBlur"
     @keyup.enter="handleBlur"

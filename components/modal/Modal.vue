@@ -34,38 +34,40 @@ const props = withDefaults(
 )
 </script>
 
-<style scoped>
-.modal-overlay {
-    position: fixed;
-    inset: 0;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: 9999;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+<style scoped lang="scss">
+.modal {
+    &-overlay {
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 9999;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-.modal-container {
-    background-color: white;
-    padding: 24px;
-    border-radius: 8px;
-    width: 400px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-}
+    &-container {
+        background-color: var(--ui-bg);
+        padding: 24px;
+        border-radius: 8px;
+        width: 400px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    }
 
-.modal-title {
-    font-size: 20px;
-    font-weight: 600;
-    margin-bottom: 16px;
-}
+    &-title {
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 16px;
+    }
 
-.modal-body {
-    margin-bottom: 24px;
-}
+    &-body {
+        margin-bottom: 24px;
+    }
 
-.modal-footer {
-    display: flex;
-    justify-content: flex-end;
-    gap: 8px;
+    &-footer {
+        display: flex;
+        justify-content: flex-end;
+        gap: 8px;
+    }
 }
 </style>

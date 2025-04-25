@@ -18,19 +18,19 @@ export default {
             source: {
                 code: `
 <template>
-<div>
-    <Button type="primary" @click="openModal" style="margin-bottom: 16px;">
-        Open Modal
-    </Button>
+    <div>
+        <Button type="primary" @click="openModal" style="margin-bottom: 16px;">
+            Open Modal
+        </Button>
 
-    <Modal
-        :title="title"
-        v-model:visible="visible"
-        :onOk="handleOk"
-        :onCancel="handleCancel"
-    >
-        <p>This is modal content.</p>
-    </Modal>
+        <Modal
+            title="Eaera modal"
+            v-model:visible="visible"
+            :onOk="handleOk"
+            :onCancel="handleCancel"
+        >
+            <p>This is modal content.</p>
+        </Modal>
     </div>
 </template>
 
