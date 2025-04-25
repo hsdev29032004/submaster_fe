@@ -49,3 +49,5 @@ export const useTaskStore = defineStore('task', {
         },
     },
 })
+
+export type TaskStore = ReturnType<typeof useTaskStore>

@@ -2,7 +2,7 @@
     <div>
         <h2 class="text-center bg-red-200 text-black">{{ nameColumn }}</h2>
         <draggable
-            class="bg-[#0b1121] light:bg-[#f8f8f8]"
+            class="bg-[#f8f8f8] dark:bg-[#0b1121]"
             v-model="store[type]"
             tag="ul"
             group="task"
@@ -22,17 +22,16 @@
 
 <script setup lang="ts">
 import draggable from 'vuedraggable'
-import { TodoStatus, useTaskStore } from '~/stores/todo'
+import { TodoStatus, type TaskStore } from '~/stores/todo'
 
 const props = defineProps<{
     type: TodoStatus
     nameColumn: string
     filter: string
+    store: TaskStore
 }>()
 
-const store = useTaskStore()
-
 const handleDrop = () => {
-    localStorage.setItem('tasks', JSON.stringify(store))
+    localStorage.setItem('tasks', JSON.stringify(props.store.$state))
 }
 </script>

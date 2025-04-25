@@ -12,18 +12,21 @@
             :type="TodoStatus.TODO"
             nameColumn="Todo"
             :filter="valueFilter"
+            :store="task"
         />
 
         <Column
             :type="TodoStatus.INPROGRESS"
             nameColumn="In progress"
             :filter="valueFilter"
+            :store="task"
         />
 
         <Column
             :type="TodoStatus.DONE"
             nameColumn="Done"
             :filter="valueFilter"
+            :store="task"
         />
     </div>
 </template>
