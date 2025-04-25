@@ -107,7 +107,7 @@ const itemsdropdown = ref([
   ],
 ]);
 
-watch(isDark, (val: any) => {
+watch(isDark, (val) => {
   colorMode.preference = val ? "light" : "dark";
 });
 
