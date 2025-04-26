@@ -1,4 +1,4 @@
-import type { Meta, StoryObj } from '@storybook/vue3/*'
+import type { Meta, StoryObj, StoryFn } from '@storybook/vue3/*'
 import TaskCard from './TaskCard.vue'
 import { TodoStatus } from '~/stores/todo'
 
@@ -24,7 +24,7 @@ const meta: Meta<typeof TaskCard> = {
 export default meta
 type Story = StoryObj<typeof TaskCard>
 
-const Template = (args: any) => ({
+const Template: StoryFn = (args: any) => ({
     components: { TaskCard },
     setup() {
         return { args }
