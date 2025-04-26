@@ -1,6 +1,6 @@
 import type { Meta, StoryObj, StoryFn } from '@storybook/vue3/*'
-import TaskCard from './TaskCard.vue'
 import { TodoStatus } from '~/stores/todo'
+import TaskCard from './TaskCard.vue'
 
 const meta: Meta<typeof TaskCard> = {
     title: 'Components/TaskCard',

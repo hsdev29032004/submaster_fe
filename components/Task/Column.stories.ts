@@ -1,7 +1,6 @@
 import type { Meta, StoryFn } from '@storybook/vue3'
 import Column from './Column.vue'
 import Button from '../button/Button.vue'
-import { createPinia, setActivePinia } from 'pinia'
 import { useTaskStore, TodoStatus } from '~/stores/todo'
 
 const meta: Meta<typeof Column> = {
@@ -33,12 +32,7 @@ const meta: Meta<typeof Column> = {
 /*
     If your store is available, just import it instead of declaring
 */
-import { createPinia, setActivePinia } from 'pinia'
 import { useTaskStore } from '~/stores/todo'
-
-const pinia = createPinia()
-setActivePinia(pinia)
-
 const store = useTaskStore()
 
 store.inProgess = [
@@ -63,9 +57,6 @@ store.inProgess = [
 export default meta
 
 const Template: StoryFn = (args) => {
-    const pinia = createPinia()
-    setActivePinia(pinia)
-
     const store = useTaskStore()
     store.inProgress = [
         {
