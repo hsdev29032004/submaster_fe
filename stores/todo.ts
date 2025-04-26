@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-export enum TodoStatus {
+export enum TaskStatus {
     TODO = 'todo',
     INPROGRESS = 'inProgress',
     DONE = 'done',
@@ -20,15 +20,15 @@ export const useTaskStore = defineStore('task', {
         }
     },
     actions: {
-        insert(value: Task, type: TodoStatus): void {
+        insert(value: Task, type: TaskStatus): void {
             this[type].push(value)
             localStorage.setItem('tasks', JSON.stringify(this.$state))
         },
-        remove(index: number, type: TodoStatus): void {
+        remove(index: number, type: TaskStatus): void {
             this[type].splice(index, 1)
             localStorage.setItem('tasks', JSON.stringify(this.$state))
         },
-        edit(index: number, value: Task, type: TodoStatus): void {
+        edit(index: number, value: Task, type: TaskStatus): void {
             if (!value.title?.trim()) return
             const list = this[type]
             list[index] = value

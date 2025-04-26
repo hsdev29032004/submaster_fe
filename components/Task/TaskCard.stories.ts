@@ -1,7 +1,7 @@
 import type { Meta, StoryObj, StoryFn } from '@storybook/vue3/*'
-import { TodoStatus } from '~/stores/todo'
 import TaskCard from './TaskCard.vue'
 import { within, expect } from '@storybook/test';
+import { TaskStatus } from '~/stores/todo';
 
 const meta: Meta<typeof TaskCard> = {
     title: 'Components/TaskCard',
@@ -38,7 +38,7 @@ const Template: StoryFn = (args: any) => ({
 export const Default: Story = {
     render: Template,
     args: {
-        type: TodoStatus.TODO,
+        type: TaskStatus.TODO,
         item: {
             title: 'learn storybook',
             description: 'lorem ipsum',

@@ -44,7 +44,7 @@
 </template>
 
 <script setup lang="ts">
-import { TodoStatus, useTaskStore, type Task } from '~/stores/todo'
+import { TaskStatus, useTaskStore, type Task } from '~/stores/todo'
 
 const visible = ref(false)
 
@@ -66,7 +66,7 @@ const handleClick = () => {
         createdAt: new Date(),
     }
 
-    task.insert(newTask, TodoStatus.TODO)
+    task.insert(newTask, TaskStatus.TODO)
 
     valueInsert.title = ''
     valueInsert.description = ''

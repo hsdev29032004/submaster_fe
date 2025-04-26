@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { TodoStatus, type TaskStore } from '~/stores/todo';
+import { TaskStatus, type TaskStore } from '~/stores/todo';
 
 const props = defineProps<{
     valueFilter: string,
@@ -22,9 +22,9 @@ const props = defineProps<{
 }>()
 
 const colName = reactive([
-    { name: 'Todo', type: TodoStatus.TODO },
-    { name: 'In Progress', type: TodoStatus.INPROGRESS },
-    { name: 'Done', type: TodoStatus.DONE },
+    { name: 'Todo', type: TaskStatus.TODO },
+    { name: 'In Progress', type: TaskStatus.INPROGRESS },
+    { name: 'Done', type: TaskStatus.DONE },
 ])
 
 onMounted(() => {

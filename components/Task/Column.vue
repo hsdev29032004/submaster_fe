@@ -21,10 +21,10 @@
 
 <script setup lang="ts">
 import draggable from 'vuedraggable'
-import { TodoStatus, type TaskStore } from '~/stores/todo'
+import { TaskStatus, type TaskStore } from '~/stores/todo'
 
 const props = defineProps<{
-    type: TodoStatus
+    type: TaskStatus
     nameColumn: string
     filter: string
     task: TaskStore

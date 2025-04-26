@@ -35,7 +35,7 @@
             </form>
         </Modal>
         <p
-            v-if="type !== TodoStatus.TODO"
+            v-if="type !== TaskStatus.TODO"
             @click="() => handleMove(index, type, 'prev', item)"
             class="cursor-pointer"
         >
@@ -51,7 +51,7 @@
             >
         </p>
         <p
-            v-if="type !== TodoStatus.DONE"
+            v-if="type !== TaskStatus.DONE"
             @click="() => handleMove(index, type, 'next', item)"
             class="cursor-pointer"
         >
@@ -62,11 +62,11 @@
 </template>
 
 <script setup lang="ts">
-import { TodoStatus, useTaskStore, type Task } from '~/stores/todo'
+import { TaskStatus, useTaskStore, type Task } from '~/stores/todo'
 
 const visible = ref(false)
 const idxPick = ref<number>(-1)
-const groupPick = ref<TodoStatus | ''>('')
+const groupPick = ref<TaskStatus | ''>('')
 const valueEdit = reactive<Task>({
     title: '',
     description: '',
@@ -76,13 +76,13 @@ const valueEdit = reactive<Task>({
 const store = useTaskStore()
 
 const props = defineProps<{
-    type: TodoStatus
+    type: TaskStatus
     item: Task
     index: number
     filter: string
 }>()
 
-const handleDblClick = (index: number, group: TodoStatus, item: Task) => {
+const handleDblClick = (index: number, group: TaskStatus, item: Task) => {
     idxPick.value = index
     groupPick.value = group
 
@@ -93,46 +93,46 @@ const handleDblClick = (index: number, group: TodoStatus, item: Task) => {
     openModal()
 }
 
-const handleDelete = (index: number, type: TodoStatus) => {
+const handleDelete = (index: number, type: TaskStatus) => {
     store?.remove(index, type)
 }
 
 const handleMove = (
     index: number,
-    coloumn: TodoStatus,
+    coloumn: TaskStatus,
     type: 'prev' | 'next',
     item: Task
 ) => {
     if (type === 'prev') {
         switch (coloumn) {
-            case TodoStatus.TODO: {
+            case TaskStatus.TODO: {
                 console.log('Error')
                 break
             }
-            case TodoStatus.INPROGRESS: {
+            case TaskStatus.INPROGRESS: {
                 store?.remove(index, coloumn)
-                store?.insert(item, TodoStatus.TODO)
+                store?.insert(item, TaskStatus.TODO)
                 break
             }
-            case TodoStatus.DONE: {
+            case TaskStatus.DONE: {
                 store?.remove(index, coloumn)
-                store?.insert(item, TodoStatus.INPROGRESS)
+                store?.insert(item, TaskStatus.INPROGRESS)
                 break
             }
         }
     } else if (type === 'next') {
         switch (coloumn) {
-            case TodoStatus.TODO: {
+            case TaskStatus.TODO: {
                 store?.remove(index, coloumn)
-                store?.insert(item, TodoStatus.INPROGRESS)
+                store?.insert(item, TaskStatus.INPROGRESS)
                 break
             }
-            case TodoStatus.INPROGRESS: {
+            case TaskStatus.INPROGRESS: {
                 store?.remove(index, coloumn)
-                store?.insert(item, TodoStatus.DONE)
+                store?.insert(item, TaskStatus.DONE)
                 break
             }
-            case TodoStatus.DONE: {
+            case TaskStatus.DONE: {
                 console.log('Error')
                 break
             }
@@ -151,7 +151,7 @@ const handleOk = () => {
             description: valueEdit.description,
             createdAt: valueEdit.createdAt,
         }
-        store?.edit(idxPick.value, newTask, groupPick.value as TodoStatus)
+        store?.edit(idxPick.value, newTask, groupPick.value as TaskStatus)
         idxPick.value = -1
         valueEdit.title = ''
         valueEdit.description = ''

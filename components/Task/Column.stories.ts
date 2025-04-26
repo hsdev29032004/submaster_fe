@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/vue3'
 import Column from './Column.vue'
-import { TodoStatus } from '~/stores/todo'
+import { TaskStatus } from '~/stores/todo'
 
 const meta: Meta<typeof Column> = {
     title: 'Components/Column',
@@ -9,7 +9,7 @@ const meta: Meta<typeof Column> = {
     argTypes: {
         type: {
             control: { type: 'select' },
-            options: [TodoStatus.TODO, TodoStatus.INPROGRESS, TodoStatus.DONE],
+            options: [TaskStatus.TODO, TaskStatus.INPROGRESS, TaskStatus.DONE],
         },
     },
 }
@@ -19,7 +19,7 @@ export default meta
 type Story = StoryObj<typeof Column>
 export const Default: Story = {
     args: {
-        type: TodoStatus.INPROGRESS,
+        type: TaskStatus.INPROGRESS,
         nameColumn: "In Progress",
         // @ts-ignore
         task: {
