@@ -1,6 +1,7 @@
 import type { Meta, StoryFn, StoryObj } from '@storybook/vue3'
+import { ref, reactive } from 'vue'
 import Kanban from './Kanban.vue'
-import { TodoStatus, useTaskStore } from '~/stores/todo'
+import { TodoStatus, type Task } from '~/stores/todo'
 import Column from './Column.vue'
 
 const meta: Meta<typeof Kanban> = {
@@ -8,61 +9,11 @@ const meta: Meta<typeof Kanban> = {
     component: Kanban,
     tags: ['autodocs'],
     argTypes: {},
-    parameters: {
-        docs: {
-            source: {
-                code: `
-<template>
-    <Kanban :valueFilter="valueFilter" :task="task"/>
-</template>
-
-<script setup lang="ts">
-import { useTaskStore } from '~/stores/todo';
-
-const valueFilter = ref<string>('')
-const task = useTaskStore()
-store.todo = [
-    {
-        title: 'Task A',
-        description: '123',
-        createdAt: new Date(),
-    },
-    {
-        title: 'Task B',
-        description: '234',
-        createdAt: new Date(),
-    },
-]
-
-store.inProgress = [
-    {
-        title: 'Task C',
-        description: '345',
-        createdAt: new Date(),
-    },
-    {
-        title: 'Task D',
-        description: '456',
-        createdAt: new Date(),
-    },
-]
-
-store.done = [
-    {
-        title: 'Task F',
-        description: '567',
-        createdAt: new Date(),
-    },
-]
-</script>
-                `
-            }
-        }
-    }
 }
 export default meta
 
 type Story = StoryObj<typeof Kanban>
+
 const Template: StoryFn = (args: any) => {
     const colName = reactive([
         { name: 'Todo', type: TodoStatus.TODO },
@@ -70,39 +21,24 @@ const Template: StoryFn = (args: any) => {
         { name: 'Done', type: TodoStatus.DONE },
     ])
 
-    const store = useTaskStore()
-    store.todo = [
-        {
-            title: 'Task A',
-            description: '123',
-            createdAt: new Date(),
-        },
-        {
-            title: 'Task B',
-            description: '234',
-            createdAt: new Date(),
-        },
+    const task = ref<{ todo: Task[]; inProgress: Task[]; done: Task[] }>({
+        todo: [],
+        inProgress: [],
+        done: [],
+    })
+
+    task.value.todo = [
+        { title: 'Task A', description: '123', createdAt: new Date() },
+        { title: 'Task B', description: '234', createdAt: new Date() },
     ]
 
-    store.inProgress = [
-        {
-            title: 'Task C',
-            description: '345',
-            createdAt: new Date(),
-        },
-        {
-            title: 'Task D',
-            description: '456',
-            createdAt: new Date(),
-        },
+    task.value.inProgress = [
+        { title: 'Task C', description: '345', createdAt: new Date() },
+        { title: 'Task D', description: '456', createdAt: new Date() },
     ]
 
-    store.done = [
-        {
-            title: 'Task F',
-            description: '567',
-            createdAt: new Date(),
-        },
+    task.value.done = [
+        { title: 'Task F', description: '567', createdAt: new Date() },
     ]
 
     return {
@@ -110,30 +46,29 @@ const Template: StoryFn = (args: any) => {
         setup() {
             return {
                 args,
-                store,
-                colName
+                task,
+                colName,
             }
         },
-        template: `
-<div
-    class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-2"
->
-    <Column
-        v-for="(col) in colName"
-        :key="col.type"
-        :type="col.type"
-        :nameColumn="col.name"
-        :store="store"
-        :filter="args.valueFilter"
-    />
-</div>
-            `,
     }
 }
 
 export const Default: Story = {
     render: Template,
     args: {
-        valueFilter: ""
+        valueFilter: '',
+        task: {
+            todo: [
+                { title: 'Task A', description: '123', createdAt: new Date() },
+                { title: 'Task B', description: '234', createdAt: new Date() },
+            ],
+            inProgress: [
+                { title: 'Task C', description: '345', createdAt: new Date() },
+                { title: 'Task D', description: '456', createdAt: new Date() },
+            ],
+            done: [
+                { title: 'Task F', description: '567', createdAt: new Date() },
+            ]
+        }
     },
 }

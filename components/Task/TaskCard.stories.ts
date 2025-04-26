@@ -1,6 +1,7 @@
 import type { Meta, StoryObj, StoryFn } from '@storybook/vue3/*'
 import { TodoStatus } from '~/stores/todo'
 import TaskCard from './TaskCard.vue'
+import { userEvent, within, expect } from '@storybook/test';
 
 const meta: Meta<typeof TaskCard> = {
     title: 'Components/TaskCard',
@@ -48,4 +49,10 @@ export const Default: Story = {
         index: 3,
         filter: '',
     },
+    play: async ({ canvasElement }) => {
+        console.log("ok")
+
+        const taskCard = within(canvasElement).getByText('Xóa');
+        expect(taskCard).toBeInTheDocument();
+    }
 }

@@ -10,7 +10,8 @@
     "postinstall": "nuxt prepare",
     "sb": "storybook dev -p 6006",
     "build-storybook": "storybook build",
-    "test-storybook": "test-storybook"
+    "test-storybook": "test-storybook",
+    "chromatic": "npx chromatic --project-token=chpt_7313fcd2b1cd3c7"
   },
   "dependencies": {
     "@nuxt/ui": "^3.0.2",
@@ -26,9 +27,13 @@
     "@chromatic-com/storybook": "^3.2.6",
     "@nuxtjs/storybook": "^8.3.3",
     "@storybook/addon-essentials": "^8.6.12",
+    "@storybook/addon-interactions": "^8.6.12",
     "@storybook/blocks": "^8.6.12",
     "@storybook/experimental-addon-test": "^8.6.12",
+    "@storybook/manager-api": "^8.6.12",
     "@storybook/test": "^8.6.12",
+    "@storybook/test-runner": "^0.22.0",
+    "@storybook/theming": "^8.6.12",
     "@storybook/vue3": "^8.6.12",
     "@vitest/browser": "^3.1.2",
     "@vitest/coverage-v8": "^3.1.2",
