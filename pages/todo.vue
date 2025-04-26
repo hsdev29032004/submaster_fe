@@ -5,9 +5,12 @@
         </div>
         <AddTaskForm />
     </div>
-    <Kanban :valueFilter="valueFilter" />
+    <Kanban :valueFilter="valueFilter" :task="task"/>
 </template>
 
 <script setup lang="ts">
+import { useTaskStore } from '~/stores/todo';
+
 const valueFilter = ref<string>('')
+const task = useTaskStore()
 </script>

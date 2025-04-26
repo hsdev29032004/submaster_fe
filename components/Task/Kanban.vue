@@ -14,10 +14,11 @@
 </template>
 
 <script setup lang="ts">
-import { TodoStatus, useTaskStore } from '~/stores/todo';
+import { TodoStatus, type TaskStore } from '~/stores/todo';
 
 const props = defineProps<{
-    valueFilter: string
+    valueFilter: string,
+    task: TaskStore
 }>()
 
 const colName = reactive([
@@ -26,11 +27,9 @@ const colName = reactive([
     { name: 'Done', type: TodoStatus.DONE },
 ])
 
-const task = useTaskStore()
-
 onMounted(() => {
     const tasks = JSON.parse(localStorage.getItem('tasks') || '{}')
-    task.$state = tasks
-    console.log(task.$state)
+    props.task.$state = tasks
+    console.log(props.task.$state)
 })
 </script>
