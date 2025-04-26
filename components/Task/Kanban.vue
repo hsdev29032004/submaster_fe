@@ -8,7 +8,7 @@
             :type="col.type"
             :nameColumn="col.name"
             :filter="valueFilter"
-            :store="task"
+            :task="task"
         />
     </div>
 </template>
@@ -28,8 +28,10 @@ const colName = reactive([
 ])
 
 onMounted(() => {
-    const tasks = JSON.parse(localStorage.getItem('tasks') || '{}')
-    props.task.$state = tasks
-    console.log(props.task.$state)
+    if(typeof localStorage.getItem('tasks') === 'object'){
+        const tasks = JSON.parse( localStorage.getItem('tasks') || '{}')
+        props.task.$state = tasks
+        console.log(props.task.$state)
+    }
 })
 </script>

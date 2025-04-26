@@ -1,6 +1,6 @@
 <template>
     <li
-        class="text-center flex justify-between p-4"
+        class="text-center flex justify-between p-4 bg-[#f8f8f8] dark:bg-[#0b1121]"
         v-show="new RegExp(filter, 'i').test(item.title)"
         @dblclick="() => handleDblClick(index, type, item)"
     >

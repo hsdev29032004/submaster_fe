@@ -1,7 +1,6 @@
-import type { Meta, StoryFn } from '@storybook/vue3'
+import type { Meta, StoryObj } from '@storybook/vue3'
 import Column from './Column.vue'
-import Button from '../button/Button.vue'
-import { useTaskStore, TodoStatus } from '~/stores/todo'
+import { TodoStatus } from '~/stores/todo'
 
 const meta: Meta<typeof Column> = {
     title: 'Components/Column',
@@ -12,90 +11,30 @@ const meta: Meta<typeof Column> = {
             control: { type: 'select' },
             options: [TodoStatus.TODO, TodoStatus.INPROGRESS, TodoStatus.DONE],
         },
-        nameColumn: { control: 'text' },
-        filter: { control: 'text' },
-    },
-    parameters: {
-        docs: {
-            source: {
-                code: `
-<template>
-    <Column
-        :type="type"
-        :nameColumn="nameColumn"
-        :filter="filter"
-        :store="store"
-    />
-</template>
-
-<script setup lang='ts'>
-/*
-    If your store is available, just import it instead of declaring
-*/
-import { useTaskStore } from '~/stores/todo'
-const store = useTaskStore()
-
-store.inProgess = [
-    {
-        title: 'Task A',
-        description: 'First task',
-        createdAt: new Date(),
-    },
-    {
-        title: 'Task B',
-        description: 'Second task',
-        createdAt: new Date(),
-    },
-]
-</script>
-                `,
-            },
-        },
     },
 }
 
 export default meta
 
-const Template: StoryFn = (args) => {
-    const store = useTaskStore()
-    store.inProgress = [
-        {
-            title: 'Task A',
-            description: 'First task',
-            createdAt: new Date(),
-        },
-        {
-            title: 'Task B',
-            description: 'Second task',
-            createdAt: new Date(),
-        },
-        {
-            title: 'Task C',
-            description: 'Third task',
-            createdAt: new Date(),
-        },
-    ]
-
-    return {
-        components: { Column, Button },
-        setup() {
-            return {
-                args,
-                store,
-            }
-        },
-        template: `
-            <Column
-                v-bind="args"
-                :store="store"
-            />
-        `,
-    }
+type Story = StoryObj<typeof Column>
+export const Default: Story = {
+    args: {
+        type: TodoStatus.INPROGRESS,
+        nameColumn: "In Progress",
+        // @ts-ignore
+        task: {
+            todo: [
+                { title: 'Task A', description: '123', createdAt: new Date() },
+                { title: 'Task B', description: '234', createdAt: new Date() },
+            ],
+            inProgress: [
+                { title: 'Task C', description: '345', createdAt: new Date() },
+                { title: 'Task D', description: '456', createdAt: new Date() },
+            ],
+            done: [
+                { title: 'Task F', description: '567', createdAt: new Date() },
+            ]
+        }
+    },
 }
 
-export const Default = Template.bind({})
-Default.args = {
-    type: TodoStatus.INPROGRESS,
-    nameColumn: 'Inprogress',
-    filter: '',
-}

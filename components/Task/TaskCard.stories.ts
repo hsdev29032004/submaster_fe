@@ -1,7 +1,7 @@
 import type { Meta, StoryObj, StoryFn } from '@storybook/vue3/*'
 import { TodoStatus } from '~/stores/todo'
 import TaskCard from './TaskCard.vue'
-import { userEvent, within, expect } from '@storybook/test';
+import { within, expect } from '@storybook/test';
 
 const meta: Meta<typeof TaskCard> = {
     title: 'Components/TaskCard',
@@ -31,9 +31,7 @@ const Template: StoryFn = (args: any) => ({
         return { args }
     },
     template: `
-        <ul class="bg-[#f8f8f8]">
-            <TaskCard v-bind="args" />
-        </ul>
+        <TaskCard v-bind="args" />
     `,
 })
 

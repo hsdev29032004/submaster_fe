@@ -2,8 +2,7 @@
     <div>
         <h2 class="text-center bg-red-200 text-black">{{ nameColumn }}</h2>
         <draggable
-            class="bg-[#f8f8f8] dark:bg-[#0b1121]"
-            v-model="store[type]"
+            v-model="task[type]"
             tag="ul"
             group="task"
             @end="handleDrop"
@@ -28,10 +27,10 @@ const props = defineProps<{
     type: TodoStatus
     nameColumn: string
     filter: string
-    store: TaskStore
+    task: TaskStore
 }>()
 
 const handleDrop = () => {
-    localStorage.setItem('tasks', JSON.stringify(props.store.$state))
+    localStorage.setItem('tasks', JSON.stringify(props.task.$state))
 }
 </script>
